@@ -224,7 +224,6 @@ public class Main {
 
             System.out.print("📍 Enter shipping address: ");
             address = MyInputReader.nextLine().trim();
-
             userInfoList.add(new UserInfo(username, email, phone, address));
         }
 

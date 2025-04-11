@@ -4,9 +4,10 @@ import model.Book;
 import structure.MyArrayList;
 
 public class LinearSearch {
-    public static Book searchByTitle(MyArrayList<Book> books, String title) {
+    public static Book searchByTitle(MyArrayList<Book> books, String keyword) {
         for (int i = 0; i < books.size(); i++) {
-            if (books.get(i).getTitle().equalsIgnoreCase(title)) {
+            String title = books.get(i).getTitle();
+            if (title.toLowerCase().contains(keyword.toLowerCase())) {
                 return books.get(i);
             }
         }

@@ -8,7 +8,7 @@ import structure.MyQueue;
 import structure.MyStack;
 
 public class OrderManager {
-    private final MyQueue<Order> orderQueue = new MyQueue<>();
+    private final MyQueue<Order> orderQueue = new MyQueue<>();  //Process next order
     private final MyStack<Order> processedStack = new MyStack<>();
     private final MyArrayList<Order> allOrders = new MyArrayList<>();
     private final BookInventory inventory = new BookInventory(); // used for rollback
@@ -24,7 +24,6 @@ public class OrderManager {
             System.out.println("📭 No pending orders.");
             return;
         }
-
         Order order = orderQueue.dequeue();
         System.out.println("🔄 Next order in queue:\n");
         System.out.println(order);
@@ -75,7 +74,7 @@ public class OrderManager {
         System.out.println("❌ Order cancelled: #" + id);
     }
 
-    public void printAllOrders() {
+    public void printAllOrders() {  //View all orders
         if (allOrders.isEmpty()) {
             System.out.println("📭 No orders found.");
             return;
@@ -86,7 +85,7 @@ public class OrderManager {
         }
     }
 
-    public void printOrdersByUser(String username) {
+    public void printOrdersByUser(String username) {  //Only user can
         boolean found = false;
         for (int i = 0; i < allOrders.size(); i++) {
             Order o = allOrders.get(i);
@@ -114,7 +113,7 @@ public class OrderManager {
         }
     }
 
-    public Order findOrder(int id) {
+    public Order findOrder(int id) {  //find by id but with valid user name
         for (int i = 0; i < allOrders.size(); i++) {
             if (allOrders.get(i).getId() == id) {
                 return allOrders.get(i);

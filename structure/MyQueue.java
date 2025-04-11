@@ -3,7 +3,7 @@ package structure;
 public class MyQueue<T> {
     private final MyArrayList<T> list = new MyArrayList<>();
 
-    public void enqueue(T item) {
+    public void enqueue(T item) {   //Undo order
         list.add(item);
     }
 
@@ -13,23 +13,11 @@ public class MyQueue<T> {
         return item;
     }
 
-    public T peek() {
-        return list.get(0);
-    }
-
     public int size() {
         return list.size();
     }
 
     public boolean isEmpty() {
         return size() == 0;
-    }
-
-    public T get(int index) {
-        return list.get(index);
-    }
-
-    public void removeAt(int index) {
-        list.removeAt(index);
     }
 }
